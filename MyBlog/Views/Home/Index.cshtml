@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model List<Post>
+
+ <!--Main body-->
+    <main class="container  mt-3">
+        <h3 class="text-center">All blogs</h3>
+        <hr />
+
+        <div class="custom-cards">
+
+        @foreach (var post in Model)
+        {
+            <div class="card m-1 d-inline" style="width: 27%;">
+                @{
+                    string imageFilePath = "~/Images/" + @post.ImagePath;
+                    string postBody = @post.Body;
+                    if (postBody.Length > 60)
+                    {
+                        postBody = postBody.Substring(0, 60) + " ...";
+                    }
+                }                   
+                   <img src="@imageFilePath" class="card-img-top" style="height: 15rem;"
+                        asp-append-version="true" alt="logo" />
+                    <div class="card-body custom-card">
+                        <h5 class="card-title">@post.Title</h5>
+                        <p class="card-text"><small class="text-muted">@post.CreatedTime</small></p>
+                        <p class="card-text">@postBody</p>
+                        <a href="blog-detail.html" class="btn btn-primary"><i class="las la-angle-double-right"></i>Read
+                            More</a>
+                    </div>
+               </div>
+           }
+
+        </div>
+
+    </main>
