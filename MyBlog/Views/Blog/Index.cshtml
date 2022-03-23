@@ -1,0 +1,25 @@
+﻿
+
+@model List<Post>
+
+@{
+    Layout = "_Layout";
+}
+<link rel="stylesheet" href="~/css/site.css">
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Body</th>
+            <th>CreatedTime</th>
+        </tr>
+        @foreach (var item in Model)
+       {
+           <tr>
+               <td>@item.Id</td>
+               <td>@item.Title</td>
+               <td>@item.Body</td>
+               <td>@item.CreatedTime</td>
+           </tr>
+       }
+    </table>

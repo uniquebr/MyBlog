@@ -70,3 +70,6 @@ main {
 .la-group a {
     font-size: 1.1rem;
 }
+table th, td {
+    border: 1px solid black;
+}
